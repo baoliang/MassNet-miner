@@ -75,6 +75,29 @@ A documentation for API is provided [here](api/README.md).
 
 A documentation for Transaction Scripts is provided [here](docs/script_en.md).
 
+### Start minder
+
+1: Set config file network->p2p->seeds to your custom eg.
+
+"seeds": "192.168.10.2,192.168.",
+
+2: remove the config file minder content
+
+3: create a wallet address like this 
+ms1qq59t8fv03c3fqvcy5e2jn5fcaleeet5temy992pmcya5pmwfwcp8qd3rm7y
+
+4: set miner space size run follow commond set minder address is ms1qq59t8fv03c3fqvcy5e2jn5fcaleeet5temy992pmcya5pmwfwcp8qd3rm7y and size is 1024M:
+
+curl -H "Content-Type:application/json" -X POST -d '{"payout_addresses":["ms1qq59t8fv03c3fqvcy5e2jn5fcaleeet5temy992pmcya5pmwfwcp8qd3rm7y"],
+"capacity":1024,"passphrase":"123456"}' http://127.0.0.1:9686/v1/spaces
+
+if the server tips you the minder is runing run this commond: 
+
+curl -H "Content-Type:application/json" -X POST -d '{}' http://127.0.0.1:9686/v1/spaces/stop
+if set the addreess and size then run this commond:
+
+curl -H "Content-Type:application/json" -X POST -d '{}' http://127.0.0.1:9686/v1/spaces/mine
+
 ## License
 
 `MassNet Miner` is licensed under the terms of the MIT license. See LICENSE for more information or see https://opensource.org/licenses/MIT.
